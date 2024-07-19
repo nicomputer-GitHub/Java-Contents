@@ -24,11 +24,9 @@ import java.time.Duration;
 
 @Repository
 public class JankenAPI {
-    // EC2の画像の送付先　application.properties ファイルから読み込まれる。
     @Value("${janken.api.url}")
     private String API_URL;
 
-    // Springの機能を使って、HTTPの要求メッセージを作成。
     private final RestTemplate restTemplate;
 
     public JankenAPI(RestTemplateBuilder restTemplateBuilder) {
