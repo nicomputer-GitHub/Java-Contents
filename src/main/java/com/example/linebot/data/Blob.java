@@ -21,13 +21,10 @@ public class Blob {
         this.blob = blob;
     }
 
-    // 画像データ取得
     public Resource getImageResource(MessageEvent<ImageMessageContent> event) throws Exception{
 
-        // 送られたLINEのメッセージIDを取得する。
         String msgId = event.getMessage().getId();
 
-        // BlobからメッセージIDと対応する画像の取得準備をする。
         MessageContentResponse contentResponse = blob.getMessageContent(msgId).get();
 
         try (InputStream is = contentResponse.getStream()) {
